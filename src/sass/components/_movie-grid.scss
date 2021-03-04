@@ -76,7 +76,7 @@ h3 {
   line-height: 1.16;
   color: $color-black;
   text-transform: uppercase;
-   @media screen and (min-width: $tablet) {
+  @media screen and (min-width: $tablet) {
     line-height: 1.33;
   }
 }

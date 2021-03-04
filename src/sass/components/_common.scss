@@ -1,14 +1,14 @@
-.container {
+.box-container {
   padding-right: 20px;
   padding-left: 20px;
   margin-left: auto;
   margin-right: auto;
   @media screen and (min-width: $tablet) {
-  padding-left: 76px;
-  padding-right: 76px;
+    padding-left: 76px;
+    padding-right: 76px;
   }
-@media screen and (min-width: $desktop) {
-  padding-left: 71px;
-  padding-right: 71px;
+  @media screen and (min-width: $desktop) {
+    padding-left: 71px;
+    padding-right: 71px;
   }
 }
