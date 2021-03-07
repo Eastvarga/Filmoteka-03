@@ -60,6 +60,8 @@ apiService.fetchMovie().then(results => {
 
 });
 
+
+///для оптимизации кода предлагаю вставить вызов этой функции в 25 строку вместо строк с 25 по 31
 function getNewResult(results, genresData) {
     results.map(result => {
         result.release_date = result.release_date.slice(0, 4);
