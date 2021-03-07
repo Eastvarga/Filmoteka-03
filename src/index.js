@@ -45,18 +45,27 @@ refs.inputForm.addEventListener('submit', event =>{
 refs.movieGrid.innerHTML = " ";
 form.reset(); //чистим форму 
 
+homeTrending.fetchGenres().then(genresData => {
 apiService.fetchMovie().then(results => {
-    const newResults = getNewResult(results);
+    if(results.length === 0){
+        refs.errorWarning.classList.remove("is-hidden")
+        return;
+    } else{
+        refs.errorWarning.classList.add("is-hidden");
+    }
+    const newResults = getNewResult(results, genresData);
     refs.movieGrid.insertAdjacentHTML('beforeend', gridTemplate(newResults));
   });
+});
 
 });
 
-function getNewResult(results) {
+function getNewResult(results, genresData) {
     results.map(result => {
         result.release_date = result.release_date.slice(0, 4);
         result.poster_path =
           'https://image.tmdb.org/t/p/original/' + result.poster_path;
+          result.genre_ids = genresFilter(genresData, result.genre_ids);
         return result;
       });
     return results;
